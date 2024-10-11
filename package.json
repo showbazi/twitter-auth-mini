@@ -1,0 +1,33 @@
+{
+    "name": "tg-mini-app-twitter-auth",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node server.js",
+        "build": "serverless package",
+        "deploy": "serverless deploy",
+        "remove": "serverless remove"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.7.7",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.1",
+        "express-session": "^1.18.1",
+        "jsonwebtoken": "^9.0.2",
+        "passport": "^0.7.0",
+        "passport-twitter": "^1.0.4",
+        "serverless-http": "^3.2.0",
+        "twitter-api-sdk": "^1.2.1",
+        "twitter-api-v2": "^1.18.0"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.0"
+    }
+}
