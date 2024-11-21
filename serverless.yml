@@ -1,36 +1,37 @@
 service: tg-mini-app-twitter-auth
 
 provider:
-  name: aws
-  runtime: nodejs18.x
-  region: us-east-1 # Change to your desired AWS region
-  environment:
-    TWITTER_CONSUMER_KEY: ${env:TWITTER_CONSUMER_KEY}
-    TWITTER_CONSUMER_SECRET: ${env:TWITTER_CONSUMER_SECRET}
-    TWITTER_CALLBACK_URL: ${env:TWITTER_CALLBACK_URL}
-    SESSION_SECRET: ${env:SESSION_SECRET}
-    JWT_SECRET: ${env:JWT_SECRET}
-    FRONTEND_BASE_URL: ${env:FRONTEND_BASE_URL}
-    REDIRECT_TWITTER_PROFILE: ${env:REDIRECT_TWITTER_PROFILE}
+    name: aws
+    runtime: nodejs18.x
+    region: us-east-1 # Change to your desired AWS region
+    environment:
+        TWITTER_CONSUMER_KEY: ${env:TWITTER_CONSUMER_KEY}
+        TWITTER_CONSUMER_SECRET: ${env:TWITTER_CONSUMER_SECRET}
+        TWITTER_CALLBACK_URL: ${env:TWITTER_CALLBACK_URL}
+        SESSION_SECRET: ${env:SESSION_SECRET}
+        JWT_SECRET: ${env:JWT_SECRET}
+        FRONTEND_BASE_URL: ${env:FRONTEND_BASE_URL}
+        REDIRECT_TWITTER_PROFILE: ${env:REDIRECT_TWITTER_PROFILE}
+        PLATFORM: ${env:PLATFORM}
 
 functions:
-  app:
-    handler: server.handler
-    events:
-      - http:
-          path: /
-          method: ANY
-          cors: true
-      - http:
-          path: /{proxy+}
-          method: ANY
-          cors: true
+    app:
+        handler: server.handler
+        events:
+            - http:
+                  path: /
+                  method: ANY
+                  cors: true
+            - http:
+                  path: /{proxy+}
+                  method: ANY
+                  cors: true
 
 plugins:
-  - serverless-offline
+    - serverless-offline
 
 package:
-  exclude:
-    - node_modules/**
-    - .gitignore
-    - .git/**
+    exclude:
+        - node_modules/**
+        - .gitignore
+        - .git/**
